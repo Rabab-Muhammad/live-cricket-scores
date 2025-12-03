@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Cricket Scores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Live Cricket Scores</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4 text-center">Live Cricket Scores</h1>
+        <div class="row">
+            {% for entry in feed.entries %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            {{ entry.title }}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ entry.description }}</p>
+                            <a href="{{ entry.link }}" class="btn btn-primary" target="_blank">More Info</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2025 Live Cricket Scores</span>
+        </div>
+    </footer>
+</body>
+</html>
